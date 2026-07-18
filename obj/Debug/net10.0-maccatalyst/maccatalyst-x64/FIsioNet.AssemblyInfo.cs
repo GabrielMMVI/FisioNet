@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FIsioNet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+2e050ffb83812c1977f42f35c5086cd74423fdc6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a5d1c02466f0c47d458bade317559f95c6cfb24f")]
 [assembly: System.Reflection.AssemblyProductAttribute("FIsioNet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FIsioNet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
