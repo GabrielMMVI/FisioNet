@@ -517,6 +517,7 @@ D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifie
 D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\FIsioNet.sourcelink.json
+<<<<<<< Updated upstream
 C:\FACULDADE\FisioNet\bin\Debug\net10.0-windows10.0.19041.0\win-x64\AboutAssets.txt
 C:\FACULDADE\FisioNet\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Platforms\Windows\App.xbf
 C:\FACULDADE\FisioNet\bin\Debug\net10.0-windows10.0.19041.0\win-x64\splashSplashScreen.scale-100.png
@@ -936,6 +937,8 @@ C:\FACULDADE\FisioNet\bin\Debug\net10.0-windows10.0.19041.0\win-x64\WinRT.Runtim
 C:\FACULDADE\FisioNet\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.Web.WebView2.Core.Projection.dll
 C:\FACULDADE\FisioNet\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.UI.pri
 C:\FACULDADE\FisioNet\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Microsoft.UI.Xaml.Controls.pri
+=======
+>>>>>>> Stashed changes
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\FIsioNet.csproj.AssemblyReference.cache
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\mauiimage.inputs
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\mauifont.inputs
@@ -948,6 +951,7 @@ C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\Platforms\Wi
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\Platforms\Windows\App.xbf
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\XamlSaveStateFile.xml
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\FIsioNet.GeneratedMSBuildEditorConfig.editorconfig
+<<<<<<< Updated upstream
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-100.png
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-125.png
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-150.png
@@ -1036,3 +1040,8 @@ C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\pri.resfiles
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
+=======
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\FIsioNet.dll
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\refint\FIsioNet.dll
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\win-x64\FIsioNet.pdb
+>>>>>>> Stashed changes
