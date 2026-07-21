@@ -14,3 +14,5 @@ bin/Debug/net10.0-windows10.0.19041.0/win-x64/FIsioNet.exe
 .vs/FIsioNet.slnx/FileContentIndex/00a3f46e-bf86-4f1f-8cd1-2686ba858b78.vsidx
 .vs/FIsioNet.slnx/FileContentIndex/00a3f46e-bf86-4f1f-8cd1-2686ba858b78.vsidx
 .vs/FIsioNet.slnx/v18/.suo
+/bin
+/.vs
