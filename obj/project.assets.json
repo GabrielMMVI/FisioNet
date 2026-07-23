@@ -33068,24 +33068,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gabriel\\.nuget\\packages\\": {},
+    "C:\\Users\\ESTEVAM\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos\\MAUI\\FIsioNet\\FIsioNet.csproj",
+      "projectUniqueName": "C:\\FACULDADE\\FisioNet\\FIsioNet.csproj",
       "projectName": "FIsioNet",
-      "projectPath": "D:\\Projetos\\MAUI\\FIsioNet\\FIsioNet.csproj",
-      "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos\\MAUI\\FIsioNet\\obj\\",
+      "projectPath": "C:\\FACULDADE\\FisioNet\\FIsioNet.csproj",
+      "packagesPath": "C:\\Users\\ESTEVAM\\.nuget\\packages\\",
+      "outputPath": "C:\\FACULDADE\\FisioNet\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ESTEVAM\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

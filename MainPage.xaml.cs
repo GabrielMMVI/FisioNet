@@ -2,7 +2,6 @@
 
 public partial class MainPage : ContentPage
 {
-
     public MainPage()
     {
         InitializeComponent();
@@ -10,6 +9,11 @@ public partial class MainPage : ContentPage
 
     private async void BtnEntrar_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(Views.FeedPage));
+        // ...seu código do botão Entrar...
+    }
+
+    private async void OnCadastrarTapped(object sender, TappedEventArgs e)
+    {
+        await DisplayAlert("Cadastro", "Ir para a tela de cadastro.", "OK");
     }
 }
