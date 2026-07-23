@@ -2,55 +2,153 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FIsioNet.Views.ProfilePage"
-             Title="ProfilePage">
+             Title="ProfilePage"
+             BackgroundColor="#F3F4F6">
 
     <Grid RowDefinitions="Auto,*">
 
         <!-- Bônus: deslizar para a esquerda (sentido inverso de como se chega aqui) também volta pro Feed -->
         <Grid.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Left" Swiped="BtnVoltar_Clicked" />
+            <SwipeGestureRecognizer Direction="Left" Swiped="BtnVoltar_Clicked"/>
         </Grid.GestureRecognizers>
 
-        <!-- Cabeçalho: seta de voltar + título, mesma posição usada na PostPage -->
-        <Grid
-            Grid.Row="0"
-            ColumnDefinitions="Auto,*"
-            Padding="8,16"
-            ColumnSpacing="8">
+        <!-- Cabeçalho adaptado com fundo verde para mesclar com o topo do perfil -->
+        <Grid BackgroundColor="#2A7B4A" ColumnDefinitions="Auto,*" ColumnSpacing="8" Grid.Row="0" Padding="8,16">
 
-            <Button
-                Grid.Column="0"
-                x:Name="btnVoltar"
-                Text="&#8592;"
-                FontSize="20"
-                WidthRequest="44"
-                HeightRequest="44"
-                Padding="0"
-                CornerRadius="22"
-                BackgroundColor="Transparent"
-                TextColor="{StaticResource TextPrimary}"
-                Clicked="BtnVoltar_Clicked" />
+            <Button BackgroundColor="Transparent" Clicked="BtnVoltar_Clicked" CornerRadius="22" FontSize="20" Grid.Column="0" HeightRequest="44" Padding="0" Text="&#8592;" TextColor="White" WidthRequest="44" x:Name="btnVoltar"/>
 
-            <Label
-                Grid.Column="1"
-                Text="Perfil"
-                Style="{StaticResource SubHeadline}"
-                FontSize="18"
-                HorizontalOptions="Start"
-                HorizontalTextAlignment="Start"
-                VerticalOptions="Center" />
+            <Label FontAttributes="Bold" FontSize="18" Grid.Column="1" HorizontalOptions="Start" HorizontalTextAlignment="Start" Text="Perfil" TextColor="White" VerticalOptions="Center"/>
 
         </Grid>
 
-        <VerticalStackLayout
-            Grid.Row="1"
-            VerticalOptions="Center"
-            HorizontalOptions="Center">
-            <Label
-                Text="ProfilePage"
-                TextColor="{StaticResource TextSecondary}" />
-        </VerticalStackLayout>
+        <!-- Corpo do Perfil (Design do Figma) -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout>
+
+                <!-- 1. INFORMAÇÕES DO PROFISSIONAL (Fundo Verde) -->
+                <VerticalStackLayout BackgroundColor="#2A7B4A" Padding="20,10,20,20" Spacing="15">
+
+                    <!-- Foto e Nomes -->
+                    <Grid ColumnDefinitions="Auto, *" ColumnSpacing="15">
+
+                        <!-- CORREÇÃO APLICADA AQUI: Removido o IsClippedToBounds="True" -->
+                        <Border Grid.Column="0" HeightRequest="80" HorizontalOptions="Center" Padding="0" Stroke="White" StrokeShape="RoundRectangle 40" StrokeThickness="2" WidthRequest="80">
+                            <!-- Lembre-se de colocar uma imagem real na pasta Resources/Images -->
+                            <Image Aspect="AspectFill" BackgroundColor="LightGray" Source="dotnet_bot.png"/>
+                        </Border>
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                            <Label FontAttributes="Bold" FontSize="20" Text="Dra. Ana Beatriz Santos" TextColor="White"/>
+                            <Label FontSize="14" Text="CREFITO-3: 12345 — Fisioterapeuta" TextColor="#E8F5E9"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Bio -->
+                    <Label FontSize="14" LineHeight="1.3" Text="Neurofisiologista clínica • Pesquisadora em reabilitação motora • 12 anos de atuação hospitalar e ambulatorial." TextColor="White"/>
+
+                    <!-- Tags -->
+                    <FlexLayout AlignItems="Start" Direction="Row" JustifyContent="Start" Wrap="Wrap">
+                        <Border BackgroundColor="#3D8B5B" Margin="0,0,8,8" Padding="12,6" Stroke="White" StrokeShape="RoundRectangle 15" StrokeThickness="1">
+                            <Label FontSize="12" Text="📍 Belo Horizonte, MG" TextColor="White"/>
+                        </Border>
+                        <Border BackgroundColor="#3D8B5B" Margin="0,0,8,8" Padding="12,6" Stroke="White" StrokeShape="RoundRectangle 15" StrokeThickness="1">
+                            <Label FontSize="12" Text="📅 Membro desde Jan/2023" TextColor="White"/>
+                        </Border>
+                        <Border BackgroundColor="#3D8B5B" Margin="0,0,8,8" Padding="12,6" Stroke="White" StrokeShape="RoundRectangle 15" StrokeThickness="1">
+                            <Label FontSize="12" Text="⭐ Top 1% da plataforma" TextColor="White"/>
+                        </Border>
+                    </FlexLayout>
+
+                    <!-- Botões de Ação -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,5,0,0">
+                        <Button BackgroundColor="Transparent" BorderColor="White" BorderWidth="1.5" CornerRadius="8" FontAttributes="Bold" FontSize="13" Grid.Column="0" Text="Fazer Encaminhamento" TextColor="White"/>
+                        <Button BackgroundColor="White" CornerRadius="8" FontAttributes="Bold" FontSize="13" Grid.Column="1" Text="Mensagem Segura" TextColor="#2A7B4A"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- 2. ESTATÍSTICAS -->
+                <Grid BackgroundColor="White" ColumnDefinitions="*,*,*" Padding="15">
+                    <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="2">
+                        <Label FontAttributes="Bold" FontSize="24" HorizontalOptions="Center" Text="148" TextColor="#2A7B4A"/>
+                        <Label FontSize="12" Text="Casos Publicados" TextColor="Gray"/>
+                    </VerticalStackLayout>
+                    <BoxView Color="#EEEEEE" Grid.Column="0" HorizontalOptions="End" Margin="0,5" WidthRequest="1"/>
+
+                    <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="2">
+                        <Label FontAttributes="Bold" FontSize="24" HorizontalOptions="Center" Text="37" TextColor="#2A7B4A"/>
+                        <Label FontSize="12" Text="Artigos Debatidos" TextColor="Gray"/>
+                    </VerticalStackLayout>
+                    <BoxView Color="#EEEEEE" Grid.Column="1" HorizontalOptions="End" Margin="0,5" WidthRequest="1"/>
+
+                    <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="2">
+                        <Label FontAttributes="Bold" FontSize="24" HorizontalOptions="Center" Text="12" TextColor="#2A7B4A"/>
+                        <Label FontSize="12" Text="Protocolos Criados" TextColor="Gray"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- 3. ABAS -->
+                <Grid BackgroundColor="White" ColumnDefinitions="*,*,*" Margin="0,4,0,0">
+                    <VerticalStackLayout Grid.Column="0" Padding="0,15,0,0">
+                        <Label FontAttributes="Bold" HorizontalOptions="Center" Text="Casos Clínicos" TextColor="#2A7B4A"/>
+                        <BoxView Color="#2A7B4A" HeightRequest="3" Margin="0,10,0,0"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1" Padding="0,15,0,0">
+                        <Label HorizontalOptions="Center" Text="Biblioteca" TextColor="Gray"/>
+                        <BoxView Color="#EEEEEE" HeightRequest="1" Margin="0,10,0,0"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="2" Padding="0,15,0,0">
+                        <Label HorizontalOptions="Center" Text="Currículo" TextColor="Gray"/>
+                        <BoxView Color="#EEEEEE" HeightRequest="1" Margin="0,10,0,0"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- 4. GRID DE CASOS (Mock) -->
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="2" Margin="0,2,0,0" RowDefinitions="130, 130" RowSpacing="2">
+                    <!-- Card 1 -->
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <Image Aspect="AspectFill" BackgroundColor="#8B4513" Source="dotnet_bot.png"/>
+                        <BoxView Color="#99000000" HeightRequest="50" VerticalOptions="End"/>
+                        <VerticalStackLayout Padding="8" VerticalOptions="End">
+                            <Label FontAttributes="Bold" FontSize="12" Text="AVC Isquêmico" TextColor="White"/>
+                            <Label FontSize="10" Text="2.1k views" TextColor="#A5D6A7"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Card 2 -->
+                    <Grid Grid.Column="1" Grid.Row="0">
+                        <Image Aspect="AspectFill" BackgroundColor="#4682B4" Source="dotnet_bot.png"/>
+                        <BoxView Color="#99000000" HeightRequest="50" VerticalOptions="End"/>
+                        <VerticalStackLayout Padding="8" VerticalOptions="End">
+                            <Label FontAttributes="Bold" FontSize="12" Text="Lombalgia L4-L5" TextColor="White"/>
+                            <Label FontSize="10" Text="3.8k views" TextColor="#A5D6A7"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Card 3 -->
+                    <Grid Grid.Column="2" Grid.Row="0">
+                        <Image Aspect="AspectFill" BackgroundColor="#556B2F" Source="dotnet_bot.png"/>
+                        <BoxView Color="#99000000" HeightRequest="50" VerticalOptions="End"/>
+                        <VerticalStackLayout Padding="8" VerticalOptions="End">
+                            <Label FontAttributes="Bold" FontSize="12" Text="Paralisia Cerebral" TextColor="White"/>
+                            <Label FontSize="10" Text="1.5k views" TextColor="#A5D6A7"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <!-- Card 4 -->
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <Image Aspect="AspectFill" BackgroundColor="#2F4F4F" Source="dotnet_bot.png"/>
+                        <BoxView Color="#99000000" HeightRequest="50" VerticalOptions="End"/>
+                        <VerticalStackLayout Padding="8" VerticalOptions="End">
+                            <Label FontAttributes="Bold" FontSize="12" Text="Fibromialgia" TextColor="White"/>
+                            <Label FontSize="10" Text="4.2k views" TextColor="#A5D6A7"/>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
 
     </Grid>
-
 </ContentPage>
