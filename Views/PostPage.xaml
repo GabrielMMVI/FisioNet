@@ -2,20 +2,21 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FIsioNet.Views.PostPage"
+             BackgroundColor="{StaticResource Background}"
              Title="PostPage">
 
-    <Grid RowDefinitions="Auto,*">
+    <Grid RowDefinitions="Auto,*,Auto">
 
         <!-- Bônus: deslizar para a direita (sentido inverso de como se chega aqui) também volta pro Feed -->
         <Grid.GestureRecognizers>
             <SwipeGestureRecognizer Direction="Right" Swiped="BtnVoltar_Clicked" />
         </Grid.GestureRecognizers>
 
-        <!-- Cabeçalho: seta de voltar + título, mesma posição do "‹ Novo Caso Clínico" no Figma -->
+        <!-- Cabeçalho: seta de voltar + título + subtítulo da etapa, conforme Figma -->
         <Grid
             Grid.Row="0"
             ColumnDefinitions="Auto,*"
-            Padding="8,16"
+            Padding="8,16,20,12"
             ColumnSpacing="8">
 
             <Button
@@ -31,25 +32,268 @@
                 TextColor="{StaticResource TextPrimary}"
                 Clicked="BtnVoltar_Clicked" />
 
-            <Label
+            <VerticalStackLayout
                 Grid.Column="1"
-                Text="Novo Caso Clínico"
-                Style="{StaticResource SubHeadline}"
-                FontSize="18"
-                HorizontalOptions="Start"
-                HorizontalTextAlignment="Start"
-                VerticalOptions="Center" />
+                VerticalOptions="Center"
+                Spacing="2">
+                <Label
+                    Text="Novo Caso Clínico"
+                    Style="{StaticResource SubHeadline}"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start" />
+                <Label
+                    Text="Etapa 1 de 2 — Conteúdo &amp; Conformidade"
+                    FontSize="12"
+                    TextColor="{StaticResource TextSecondary}" />
+            </VerticalStackLayout>
 
         </Grid>
 
-        <VerticalStackLayout
-            Grid.Row="1"
-            VerticalOptions="Center"
-            HorizontalOptions="Center">
-            <Label
-                Text="PostPage"
-                TextColor="{StaticResource TextSecondary}" />
-        </VerticalStackLayout>
+        <!-- Corpo do formulário -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="16,4,16,24" Spacing="20">
+
+                <!-- Mídia do caso: thumbnail + botão Substituir + play + duração -->
+                <Border StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="0" HeightRequest="220">
+                    <Grid>
+                        <BoxView Color="{StaticResource Gray200}" />
+
+                        <Button
+                            Text="Substituir"
+                            Clicked="BtnSubstituir_Clicked"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"
+                            Margin="0,16,16,0"
+                            Padding="14,6"
+                            FontSize="12"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="{StaticResource White}" />
+
+                        <Border
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="64"
+                            HeightRequest="64"
+                            Padding="0"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 32"
+                            BackgroundColor="#5A2E8B57">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="BtnReproduzir_Tapped" />
+                            </Border.GestureRecognizers>
+                            <Label
+                                Text="&#9654;"
+                                FontSize="24"
+                                TextColor="{StaticResource White}"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Margin="6,0,0,0" />
+                        </Border>
+
+                        <Border
+                            HorizontalOptions="Start"
+                            VerticalOptions="End"
+                            Margin="12,0,0,12"
+                            Padding="8,4"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 6"
+                            BackgroundColor="#CC000000">
+                            <Label Text="02:47" FontSize="12" TextColor="{StaticResource White}" />
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Filtro de Anonimização (IA) -->
+                <Border BackgroundColor="{StaticResource PrimaryLight}" Stroke="Transparent" Padding="16">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Label
+                            Grid.Column="0"
+                            Text="&#128737;"
+                            FontSize="22"
+                            TextColor="{StaticResource Primary}"
+                            VerticalOptions="Start" />
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="4">
+                            <Label
+                                Text="Filtro de Anonimização (IA)"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                TextColor="{StaticResource Primary}" />
+                            <Label
+                                Text="Remove automaticamente rostos, tatuagens e dados identificáveis do paciente com IA de visão computacional."
+                                FontSize="12"
+                                TextColor="{StaticResource TextSecondary}" />
+                        </VerticalStackLayout>
+
+                        <Switch
+                            Grid.Column="2"
+                            x:Name="switchAnonimizacao"
+                            VerticalOptions="Start" />
+                    </Grid>
+                </Border>
+
+                <!-- História Clínica -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="HISTÓRIA CLÍNICA" Style="{StaticResource SectionLabel}" />
+                    <Border BackgroundColor="{StaticResource Surface}" Stroke="Transparent">
+                        <Editor
+                            x:Name="editorHistoria"
+                            Placeholder="Descreva o quadro clínico inicial, anamnese e diagnóstico fisioterapêutico..."
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource TextPrimary}"
+                            PlaceholderColor="{StaticResource Gray400}"
+                            HeightRequest="100"
+                            AutoSize="TextChanges"
+                            TextChanged="Campo_TextChanged" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Intervenção -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="INTERVENÇÃO" Style="{StaticResource SectionLabel}" />
+                    <Border BackgroundColor="{StaticResource Surface}" Stroke="Transparent">
+                        <Editor
+                            x:Name="editorIntervencao"
+                            Placeholder="Descreva o protocolo terapêutico aplicado, frequência e técnicas utilizadas..."
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource TextPrimary}"
+                            PlaceholderColor="{StaticResource Gray400}"
+                            HeightRequest="100"
+                            AutoSize="TextChanges"
+                            TextChanged="Campo_TextChanged" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Resultados -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="RESULTADOS" Style="{StaticResource SectionLabel}" />
+                    <Border BackgroundColor="{StaticResource Surface}" Stroke="Transparent">
+                        <Editor
+                            x:Name="editorResultados"
+                            Placeholder="Descreva os desfechos clínicos, escalas de avaliação e evolução do paciente..."
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource TextPrimary}"
+                            PlaceholderColor="{StaticResource Gray400}"
+                            HeightRequest="100"
+                            AutoSize="TextChanges"
+                            TextChanged="Campo_TextChanged" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Confirmação de Conformidade Ética -->
+                <Border BackgroundColor="{StaticResource WarningLight}" Stroke="{StaticResource WarningBorder}" StrokeThickness="1" Padding="16">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <CheckBox
+                            Grid.Column="0"
+                            x:Name="checkboxEtica"
+                            Color="{StaticResource Warning}"
+                            VerticalOptions="Start"
+                            CheckedChanged="CheckboxEtica_CheckedChanged" />
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                            <Label
+                                Text="Confirmação de Conformidade Ética — Obrigatório"
+                                FontAttributes="Bold"
+                                FontSize="13"
+                                TextColor="{StaticResource Warning}" />
+                            <Label FontSize="12" TextColor="{StaticResource Warning}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Confirmo que possuo o TCLE assinado deste paciente e que este conteúdo está em conformidade com a " />
+                                        <Span Text="Resolução COFFITO 532/2021" FontAttributes="Bold" />
+                                        <Span Text=" e o Código de Ética Profissional." />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- Publicar -->
+                <VerticalStackLayout Spacing="8" Margin="0,4,0,0">
+                    <Button
+                        x:Name="btnPublicar"
+                        Text="Publicar"
+                        IsEnabled="False"
+                        HorizontalOptions="Fill"
+                        Clicked="BtnPublicar_Clicked" />
+                    <Label
+                        x:Name="lblAjudaPublicar"
+                        Text="Preencha todos os campos e confirme o TCLE para publicar"
+                        FontSize="11"
+                        TextColor="{StaticResource TextSecondary}"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Barra de navegação inferior (mesmo padrão do FeedPage, com "Publicar" como aba atual) -->
+        <Grid Grid.Row="2"
+              BackgroundColor="{StaticResource Secondary}"
+              ColumnDefinitions="*,*,*,*,*"
+              Padding="0,12,0,24">
+
+            <BoxView Grid.ColumnSpan="5"
+                     HeightRequest="1"
+                     Color="{StaticResource Secondary}"
+                     VerticalOptions="Start"
+                     Margin="0,-12,0,0" />
+
+            <!-- Feed -->
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnFeedPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_home.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Feed" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Buscar -->
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnEmBreve_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_search.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Buscar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Publicar (aba atual) -->
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4" Margin="0,-4,0,0">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnPostPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Border BackgroundColor="{StaticResource Primary}"
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="12,6"
+                        WidthRequest="45">
+                    <Image Source="button_newpost.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Center" />
+                </Border>
+                <Label Text="Publicar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Avisos -->
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnAvisosPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_notification.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Avisos" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Perfil -->
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnProfilePage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_profile.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Perfil" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
 
     </Grid>
 

@@ -1,4 +1,6 @@
-﻿namespace FIsioNet;
+using FIsioNet.Views;
+
+namespace FIsioNet;
 
 public partial class MainPage : ContentPage
 {
@@ -9,11 +11,20 @@ public partial class MainPage : ContentPage
 
     private async void BtnEntrar_Clicked(object sender, EventArgs e)
     {
-        // ...seu código do botão Entrar...
+        var usuario = EntryLoginUsuario.Text?.Trim();
+        var senha = EntryLoginSenha.Text;
+
+        if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(senha))
+        {
+            await DisplayAlert("Login", "Informe usuário e senha.", "OK");
+            return;
+        }
+
+        await Shell.Current.GoToAsync(nameof(FeedPage));
     }
 
     private async void OnCadastrarTapped(object sender, TappedEventArgs e)
     {
-        await DisplayAlert("Cadastro", "Ir para a tela de cadastro.", "OK");
+        await Shell.Current.GoToAsync(nameof(CadastroPage));
     }
 }

@@ -10,3 +10,15 @@ D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\Platforms\Window
 D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\Platforms\Windows\App.xbf
 D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\XamlSaveStateFile.xml
 D:\Projetos\MAUI\FIsioNet\obj\Debug\net10.0-windows10.0.19041.0\FIsioNet.GeneratedMSBuildEditorConfig.editorconfig
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\FIsioNet.csproj.AssemblyReference.cache
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\mauiimage.inputs
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\mauifont.inputs
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\mauisplash.inputs
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\mauimanifest.stamp
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\Platforms\Windows\App.g.i.cs
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\Platforms\Windows\App.g.cs
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\XamlTypeInfo.g.cs
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\Platforms\Windows\App.xaml
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\Platforms\Windows\App.xbf
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\XamlSaveStateFile.xml
+C:\FACULDADE\FisioNet\obj\Debug\net10.0-windows10.0.19041.0\FIsioNet.GeneratedMSBuildEditorConfig.editorconfig

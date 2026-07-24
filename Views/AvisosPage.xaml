@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FIsioNet.Views.AvisosPage"
+             BackgroundColor="{StaticResource Background}"
+             Title="Avisos">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- Bônus: deslizar para a direita também volta pro Feed -->
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Right" Swiped="BtnVoltarFeed_Clicked" />
+        </Grid.GestureRecognizers>
+
+        <!-- Estado vazio: seção em desenvolvimento -->
+        <VerticalStackLayout
+            Grid.Row="0"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="40,0"
+            Spacing="16">
+
+            <Border
+                WidthRequest="72"
+                HeightRequest="72"
+                Padding="0"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 20"
+                BackgroundColor="{StaticResource PrimaryLight}"
+                HorizontalOptions="Center">
+                <Label
+                    Text="&#128276;"
+                    FontSize="32"
+                    TextColor="{StaticResource Primary}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            </Border>
+
+            <Label
+                Text="Notificações"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="{StaticResource TextPrimary}"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                Text="Esta seção está em desenvolvimento. Use o botão abaixo para voltar ao feed."
+                FontSize="14"
+                TextColor="{StaticResource TextSecondary}"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Button
+                Text="Voltar ao Feed"
+                Clicked="BtnVoltarFeed_Clicked"
+                Margin="0,8,0,0"
+                Padding="24,12"
+                FontAttributes="Bold"
+                CornerRadius="24"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="{StaticResource White}"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+
+        <!-- Barra de navegação inferior (mesmo padrão do Feed/Publicar, com "Avisos" como aba atual) -->
+        <Grid Grid.Row="1"
+              BackgroundColor="{StaticResource Secondary}"
+              ColumnDefinitions="*,*,*,*,*"
+              Padding="0,12,0,24">
+
+            <BoxView Grid.ColumnSpan="5"
+                     HeightRequest="1"
+                     Color="{StaticResource Secondary}"
+                     VerticalOptions="Start"
+                     Margin="0,-12,0,0" />
+
+            <!-- Feed -->
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnFeedPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_home.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Feed" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Buscar -->
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnEmBreve_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_search.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Buscar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Publicar -->
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4" Margin="0,-4,0,0">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnPostPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Border BackgroundColor="{StaticResource Primary}"
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="12,6"
+                        WidthRequest="45">
+                    <Image Source="button_newpost.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Center" />
+                </Border>
+                <Label Text="Publicar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Avisos (aba atual) -->
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnAvisosPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_notification.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Avisos" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <!-- Perfil -->
+            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnProfilePage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="button_profile.png" WidthRequest="24" HeightRequest="24" />
+                <Label Text="Perfil" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

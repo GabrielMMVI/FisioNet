@@ -81,6 +81,9 @@
 	  <Compile Update="Views\CadastroPage.xaml.cs">
 	    <DependentUpon>CadastroPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AvisosPage.xaml.cs">
+	    <DependentUpon>AvisosPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PostPage.xaml.cs">
 	    <DependentUpon>PostPage.xaml</DependentUpon>
 	  </Compile>
@@ -94,6 +97,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CadastroPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AvisosPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProfilePage.xaml">
