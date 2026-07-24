@@ -18,6 +18,11 @@
     <!-- Tonalidade suave do Primary, usada em selos, badges e caixas de destaque (ex: aviso de "Filtro de Anonimização") -->
     <Color x:Key="PrimaryLight">#E3F3EA</Color>
 
+    <!-- Âmbar/laranja de alerta ético, usado na caixa de "Confirmação de Conformidade Ética" (PostPage) -->
+    <Color x:Key="Warning">#B45309</Color>
+    <Color x:Key="WarningLight">#FEF3E2</Color>
+    <Color x:Key="WarningBorder">#F0C987</Color>
+
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>

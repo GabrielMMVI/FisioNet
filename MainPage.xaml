@@ -15,10 +15,10 @@
                 <!-- Formulário -->
                 <VerticalStackLayout Spacing="12">
                     <Border BackgroundColor="#FAFAFA" Stroke="#DBDBDB" StrokeThickness="1" StrokeShape="RoundRectangle 5" HeightRequest="48">
-                        <Entry Placeholder="Telefone, nome de usuário ou email" FontSize="14" BackgroundColor="Transparent" TextColor="Black" Margin="10,0" SemanticProperties.Description="Entre com sua conta google ou nome de usuário." />
+                        <Entry x:Name="EntryLoginUsuario" Placeholder="Telefone, nome de usuário ou email" FontSize="14" BackgroundColor="Transparent" TextColor="Black" Margin="10,0" SemanticProperties.Description="Entre com sua conta google ou nome de usuário." />
                     </Border>
                     <Border BackgroundColor="#FAFAFA" Stroke="#DBDBDB" StrokeThickness="1" StrokeShape="RoundRectangle 5" HeightRequest="48">
-                        <Entry Placeholder="Senha" IsPassword="True" FontSize="14" BackgroundColor="Transparent" TextColor="Black" Margin="10,0"/>
+                        <Entry x:Name="EntryLoginSenha" Placeholder="Senha" IsPassword="True" FontSize="14" BackgroundColor="Transparent" TextColor="Black" Margin="10,0"/>
                     </Border>
                 </VerticalStackLayout>
 

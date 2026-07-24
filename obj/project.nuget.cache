@@ -124,13 +124,13 @@
     "C:\\Users\\ESTEVAM\\.nuget\\packages\\xamarin.kotlinx.coroutines.core.jvm\\1.10.2.1\\xamarin.kotlinx.coroutines.core.jvm.1.10.2.1.nupkg.sha512",
     "C:\\Users\\ESTEVAM\\.nuget\\packages\\xamarin.kotlinx.serialization.core\\1.9.0.1\\xamarin.kotlinx.serialization.core.1.9.0.1.nupkg.sha512",
     "C:\\Users\\ESTEVAM\\.nuget\\packages\\xamarin.kotlinx.serialization.core.jvm\\1.9.0.1\\xamarin.kotlinx.serialization.core.jvm.1.9.0.1.nupkg.sha512",
-    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512",
+    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.10\\microsoft.netcore.app.runtime.win-x64.10.0.10.nupkg.sha512",
     "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.netcore.app.runtime.win-arm64\\10.0.10\\microsoft.netcore.app.runtime.win-arm64.10.0.10.nupkg.sha512",
-    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.10\\microsoft.aspnetcore.app.runtime.win-x64.10.0.10.nupkg.sha512",
-    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\10.0.10\\microsoft.windowsdesktop.app.runtime.win-arm64.10.0.10.nupkg.sha512",
     "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.10\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.10.nupkg.sha512",
+    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-arm64\\10.0.10\\microsoft.windowsdesktop.app.runtime.win-arm64.10.0.10.nupkg.sha512",
+    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.10\\microsoft.aspnetcore.app.runtime.win-x64.10.0.10.nupkg.sha512",
     "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-arm64\\10.0.10\\microsoft.aspnetcore.app.runtime.win-arm64.10.0.10.nupkg.sha512",
-    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.10\\microsoft.netcore.app.runtime.win-x64.10.0.10.nupkg.sha512"
+    "C:\\Users\\ESTEVAM\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
   "logs": []
 }

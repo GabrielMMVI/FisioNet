@@ -1,8 +1,9 @@
-﻿obj\Debug\net10.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
-obj\Debug\net10.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png
-obj\Debug\net10.0-android\resizetizer\r\drawable-xhdpi\dotnet_bot.png
-obj\Debug\net10.0-android\resizetizer\r\drawable-xxhdpi\dotnet_bot.png
-obj\Debug\net10.0-android\resizetizer\r\drawable-xxxhdpi\dotnet_bot.png
+﻿obj\Debug\net10.0-android\resizetizer\r\drawable\button_home.png
+obj\Debug\net10.0-android\resizetizer\r\drawable\button_newpost.png
+obj\Debug\net10.0-android\resizetizer\r\drawable\button_notification.png
+obj\Debug\net10.0-android\resizetizer\r\drawable\button_profile.png
+obj\Debug\net10.0-android\resizetizer\r\drawable\button_search.png
+obj\Debug\net10.0-android\resizetizer\r\drawable\image_b79165.jpg
 obj\Debug\net10.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 obj\Debug\net10.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
 obj\Debug\net10.0-android\resizetizer\r\mipmap-hdpi\appicon.png

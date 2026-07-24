@@ -31,7 +31,7 @@
                     <Grid>
                         <!-- 1. Mídia de Fundo (Placeholder) -->
                         <!-- AspectFill garante que a imagem/vídeo cubra toda a área sem distorcer -->
-                        <Image Source="image_b79185.jpg"
+                        <Image Source="image_b79165.jpg"
                                Aspect="AspectFill" 
                                VerticalOptions="Fill" 
                                HorizontalOptions="Fill" />
@@ -184,21 +184,30 @@
 
             <!-- Feed -->
             <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnFeedPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_home.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Feed" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>
 
             <!-- Buscar -->
             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnEmBreve_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_search.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Buscar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>
 
             <!-- Publicar (Botão Central) -->
             <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4" Margin="0,-4,0,0">
-                <Border BackgroundColor="{StaticResource Primary}" 
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnPostPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Border BackgroundColor="{StaticResource Primary}"
                         Stroke="Transparent"
-                        StrokeShape="RoundRectangle 10" 
+                        StrokeShape="RoundRectangle 10"
                         Padding="12,6"
                         WidthRequest="45">
                     <Image Source="button_newpost.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Center" />
@@ -208,12 +217,18 @@
 
             <!-- Avisos -->
             <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnAvisosPage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_notification.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Avisos" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>
 
             <!-- Perfil -->
             <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BtnProfilePage_Clicked" />
+                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_profile.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Perfil" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>

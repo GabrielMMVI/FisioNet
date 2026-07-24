@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\FACULDADE\\FisioNet\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|c:\\faculdade\\fisionet\\views\\avisospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|solutionrelative:views\\avisospage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|c:\\faculdade\\fisionet\\views\\postpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|solutionrelative:views\\postpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|c:\\faculdade\\fisionet\\views\\cadastropage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|solutionrelative:views\\cadastropage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|c:\\faculdade\\fisionet\\views\\feedpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{26011D0C-1F88-356E-9B54-AC07013A10EE}|FIsioNet.csproj|solutionrelative:views\\feedpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -27,6 +39,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AvisosPage.xaml",
+              "DocumentMoniker": "C:\\FACULDADE\\FisioNet\\Views\\AvisosPage.xaml",
+              "RelativeDocumentMoniker": "Views\\AvisosPage.xaml",
+              "ToolTip": "C:\\FACULDADE\\FisioNet\\Views\\AvisosPage.xaml",
+              "RelativeToolTip": "Views\\AvisosPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-07-24T01:24:58.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PostPage.xaml",
+              "DocumentMoniker": "C:\\FACULDADE\\FisioNet\\Views\\PostPage.xaml",
+              "RelativeDocumentMoniker": "Views\\PostPage.xaml",
+              "ToolTip": "C:\\FACULDADE\\FisioNet\\Views\\PostPage.xaml",
+              "RelativeToolTip": "Views\\PostPage.xaml",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-07-24T00:37:25.793Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CadastroPage.xaml",
+              "DocumentMoniker": "C:\\FACULDADE\\FisioNet\\Views\\CadastroPage.xaml",
+              "RelativeDocumentMoniker": "Views\\CadastroPage.xaml",
+              "ToolTip": "C:\\FACULDADE\\FisioNet\\Views\\CadastroPage.xaml",
+              "RelativeToolTip": "Views\\CadastroPage.xaml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-07-23T00:11:57.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "FeedPage.xaml",
               "DocumentMoniker": "C:\\FACULDADE\\FisioNet\\Views\\FeedPage.xaml",
               "RelativeDocumentMoniker": "Views\\FeedPage.xaml",
@@ -34,12 +83,11 @@
               "RelativeToolTip": "Views\\FeedPage.xaml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-07-22T01:52:02.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-22T01:52:02.203Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "C:\\FACULDADE\\FisioNet\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "MainPage.xaml.cs",
@@ -51,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\FACULDADE\\FisioNet\\MainPage.xaml",
               "RelativeDocumentMoniker": "MainPage.xaml",
