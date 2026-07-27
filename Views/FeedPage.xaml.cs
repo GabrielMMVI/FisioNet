@@ -1,20 +1,52 @@
-namespace FIsioNet.Views;
+using FIsioNet.Models;
+using System.Collections.ObjectModel;
 
+namespace FIsioNet.Views;
 
 public partial class FeedPage : ContentPage
 {
-	public FeedPage()
-	{
-		InitializeComponent();
-	}
+    public ObservableCollection<Post> Posts { get; set; } = new();
 
-	public async void BtnPostPage_Clicked(object sender, EventArgs e)
+    public FeedPage()
     {
-        await Shell.Current.GoToAsync(nameof(PostPage));
+        InitializeComponent();
+
+        Posts.Add(new Post
+        {
+            AuthorName = "Dra. Fernanda Lima",
+            AuthorSpecialty = "Fisioterapia Neurológica · CREFITO-2: 98312",
+            AuthorIsVerified = true,
+            MediaSource = "image_b79185.jpg",
+            Description = "Reabilitação motora pós-AVC: protocolo de 8 semanas com resultados mensuráveis em escala FIM.",
+            TagCid = "CID G82.5",
+            TagMethod = "Método Bobath",
+            LikesCount = "1.247",
+            SavesCount = "389"
+        });
+
+        Posts.Add(new Post
+        {
+            AuthorName = "Dr. Ricardo Alves",
+            AuthorSpecialty = "Fisioterapia Ortopédica · CREFITO-3: 45210",
+            AuthorIsVerified = false,
+            MediaSource = "image_b79185.jpg",
+            Description = "Fortalecimento de manguito rotador: exercícios progressivos pós-cirurgia.",
+            TagCid = "CID M75.1",
+            TagMethod = "Cadeia Cinética Fechada",
+            LikesCount = "532",
+            SavesCount = "120"
+        });
+
+        BindingContext = this;
     }
 
-    public async void BtnProfilePage_Clicked(object sender, EventArgs e)
+    private async void BtnProfilePage_Clicked(object? sender, SwipedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(ProfilePage));
+    }
+
+    private async void BtnPostPage_Clicked(object? sender, SwipedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(PostPage));
     }
 }
