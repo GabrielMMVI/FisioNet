@@ -16,6 +16,7 @@
 
         <!-- Container do Feed estilo TikTok -->
         <CarouselView Grid.Row="0"
+                      ItemsSource="{Binding Posts}"
                       VerticalScrollBarVisibility="Never"
                       Loop="False">
             <CarouselView.ItemsLayout>
@@ -29,9 +30,8 @@
                 <DataTemplate>
                     <!-- Grid interno do post. Todos os elementos aqui se sobrepõem. -->
                     <Grid>
-                        <!-- 1. Mídia de Fundo (Placeholder) -->
-                        <!-- AspectFill garante que a imagem/vídeo cubra toda a área sem distorcer -->
-                        <Image Source="image_b79165.jpg"
+                        <!-- 1. Mídia de Fundo (agora vem do Post) -->
+                        <Image Source="{Binding MediaSource}"
                                Aspect="AspectFill" 
                                VerticalOptions="Fill" 
                                HorizontalOptions="Fill" />
@@ -76,9 +76,9 @@
                                                  Spacing="8" 
                                                  Padding="0,0,20,0">
 
-                                <!-- Nome e Verificado -->
+                                <!-- Nome e Verificado (agora vem do Post) -->
                                 <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
-                                    <Label Text="Dra. Fernanda Lima" 
+                                    <Label Text="{Binding AuthorName}" 
                                            FontAttributes="Bold" 
                                            FontSize="16" 
                                            TextColor="White" />
@@ -88,28 +88,28 @@
                                            VerticalOptions="Center"/>
                                 </HorizontalStackLayout>
 
-                                <Label Text="Fisioterapia Neurológica · CREFITO-2: 98312" 
+                                <Label Text="{Binding AuthorSpecialty}" 
                                        FontSize="13" 
                                        TextColor="#E0E0E0" />
 
-                                <!-- Tags usando Border (melhor performance que Frame) -->
+                                <!-- Tags usando Border (agora vem do Post) -->
                                 <HorizontalStackLayout Spacing="8">
                                     <Border BackgroundColor="#2A6F4E" 
                                             Stroke="Transparent" 
                                             StrokeShape="RoundRectangle 4" 
                                             Padding="8,4">
-                                        <Label Text="CID G82.5" FontSize="11" TextColor="White" />
+                                        <Label Text="{Binding TagCid}" FontSize="11" TextColor="White" />
                                     </Border>
                                     <Border BackgroundColor="#666666" 
                                             Stroke="Transparent" 
                                             StrokeShape="RoundRectangle 4" 
                                             Padding="8,4">
-                                        <Label Text="Método Bobath" FontSize="11" TextColor="White" />
+                                        <Label Text="{Binding TagMethod}" FontSize="11" TextColor="White" />
                                     </Border>
                                 </HorizontalStackLayout>
 
-                                <!-- Descrição do Post -->
-                                <Label Text="Reabilitação motora pós-AVC: protocolo de 8 semanas com resultados mensuráveis em escala FIM." 
+                                <!-- Descrição do Post (agora vem do Post) -->
+                                <Label Text="{Binding Description}" 
                                        FontSize="14" 
                                        TextColor="White" 
                                        LineBreakMode="WordWrap" />
@@ -146,16 +146,16 @@
                                            Margin="0,0,0,-4" />
                                 </Grid>
 
-                                <!-- Curtir -->
+                                <!-- Curtir (contagem agora vem do Post) -->
                                 <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                                     <Image Source="ic_heart.png" WidthRequest="32" HeightRequest="32" />
-                                    <Label Text="1.247" FontSize="12" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                                    <Label Text="{Binding LikesCount}" FontSize="12" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
                                 </VerticalStackLayout>
 
-                                <!-- Salvar -->
+                                <!-- Salvar (contagem agora vem do Post) -->
                                 <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                                     <Image Source="ic_bookmark.png" WidthRequest="32" HeightRequest="32" />
-                                    <Label Text="389" FontSize="12" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                                    <Label Text="{Binding SavesCount}" FontSize="12" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
                                 </VerticalStackLayout>
 
                                 <!-- Compartilhar -->
@@ -184,30 +184,21 @@
 
             <!-- Feed -->
             <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnFeedPage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_home.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Feed" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>
 
             <!-- Buscar -->
             <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnEmBreve_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_search.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Buscar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>
 
             <!-- Publicar (Botão Central) -->
             <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4" Margin="0,-4,0,0">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnPostPage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
-                <Border BackgroundColor="{StaticResource Primary}"
+                <Border BackgroundColor="{StaticResource Primary}" 
                         Stroke="Transparent"
-                        StrokeShape="RoundRectangle 10"
+                        StrokeShape="RoundRectangle 10" 
                         Padding="12,6"
                         WidthRequest="45">
                     <Image Source="button_newpost.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Center" />
@@ -217,18 +208,12 @@
 
             <!-- Avisos -->
             <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnAvisosPage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_notification.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Avisos" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>
 
             <!-- Perfil -->
             <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnProfilePage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
                 <Image Source="button_profile.png" WidthRequest="24" HeightRequest="24" />
                 <Label Text="Perfil" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
             </VerticalStackLayout>
