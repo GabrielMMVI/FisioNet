@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FIsioNet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+3ccae2a87b752d1c9691b21093c82cdfaafb1ec4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+0f0b6e70ad9984d6b25238ab20b9f63196a114c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("FIsioNet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FIsioNet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
