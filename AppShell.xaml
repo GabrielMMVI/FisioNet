@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FIsioNet.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FIsioNet"
+    xmlns:views="clr-namespace:FIsioNet.Views"
+    FlyoutBehavior="Disabled"
+    Title="FIsioNet">
+    
+    <ShellContent
+        Title="LoginPage"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>
