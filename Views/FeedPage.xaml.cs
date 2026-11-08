@@ -16,7 +16,7 @@ public partial class FeedPage : ContentPage
             AuthorName = "Dra. Fernanda Lima",
             AuthorSpecialty = "Fisioterapia Neurológica · CREFITO-2: 98312",
             AuthorIsVerified = true,
-            MediaSource = "image_b79185.jpg",
+            MediaSource = "image_b79165.jpg",
             Description = "Reabilitação motora pós-AVC: protocolo de 8 semanas com resultados mensuráveis em escala FIM.",
             TagCid = "CID G82.5",
             TagMethod = "Método Bobath",
@@ -29,7 +29,7 @@ public partial class FeedPage : ContentPage
             AuthorName = "Dr. Ricardo Alves",
             AuthorSpecialty = "Fisioterapia Ortopédica · CREFITO-3: 45210",
             AuthorIsVerified = false,
-            MediaSource = "image_b79185.jpg",
+            MediaSource = "image_b79165.jpg",
             Description = "Fortalecimento de manguito rotador: exercícios progressivos pós-cirurgia.",
             TagCid = "CID M75.1",
             TagMethod = "Cadeia Cinética Fechada",
@@ -59,6 +59,11 @@ public partial class FeedPage : ContentPage
     public async void BtnEmBreve_Clicked(object sender, EventArgs e)
     {
         await DisplayAlert("FisioNet", "Em breve.", "OK");
+    }
+
+    public async void BtnCursosPage_Clicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(CursosPage));
     }
 
     public async void BtnPostPage_Clicked(object sender, EventArgs e)
