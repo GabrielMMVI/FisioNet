@@ -20,6 +20,11 @@
 
     <!-- Conteúdo rolável (*) + barra inferior fixa (Auto) -->
     <Grid RowDefinitions="*, Auto" BackgroundColor="{StaticResource PageBg}">
+        <!-- Gestos horizontais -->
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeToFeed" />
+            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeToPublicar"/>
+        </Grid.GestureRecognizers>
 
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="0">

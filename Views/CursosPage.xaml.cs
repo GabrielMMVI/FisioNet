@@ -193,4 +193,14 @@ public partial class CursosPage : ContentPage
 
     public async void BtnEmBreve_Clicked(object? sender, EventArgs e)
         => await DisplayAlert("FisioNet", "Em breve.", "OK");
+
+    private async void OnSwipeToFeed(object? sender, SwipedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(FeedPage));
+    }
+
+    private async void OnSwipeToPublicar(object? sender, SwipedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(PostPage));
+    }
 }

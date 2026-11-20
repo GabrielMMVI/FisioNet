@@ -72,4 +72,15 @@ public partial class PostPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(AvisosPage));
     }
+
+    private async void OnSwipeToCursos(object sender, SwipedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(CursosPage));
+    }
+
+    private async void OnSwipeToSimulados(object sender, SwipedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(SimuladosPage));
+    }
+
 }

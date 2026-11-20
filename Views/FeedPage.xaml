@@ -9,10 +9,9 @@
     <!-- Grid principal: O conteúdo ocupa o topo (*) e a BottomBar fica fixa (Auto) -->
     <Grid RowDefinitions="*, Auto">
 
-        <!-- Gestos horizontais mantidos do seu código original -->
+        <!-- Gestos horizontais -->
         <Grid.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Left" Swiped="BtnProfilePage_Clicked" />
-            <SwipeGestureRecognizer Direction="Right" Swiped="BtnPostPage_Clicked" />
+            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeToCursos" />
         </Grid.GestureRecognizers>
 
         <!-- Container do Feed estilo TikTok -->
@@ -57,22 +56,6 @@
                                    FontSize="16"
                                    TextColor="White"
                                    VerticalOptions="Center" />
-
-                            <HorizontalStackLayout Grid.Column="2" Spacing="10">
-                                <!-- Avisos (saiu da barra inferior e veio para o topo) -->
-                                <ImageButton Source="button_notification.png"
-                                             WidthRequest="36"
-                                             HeightRequest="36"
-                                             Padding="8"
-                                             CornerRadius="18"
-                                             BackgroundColor="#40000000"
-                                             Clicked="BtnAvisosPage_Clicked" />
-                                <ImageButton Source="ic_volume_off.png"
-                                             WidthRequest="36"
-                                             HeightRequest="36"
-                                             CornerRadius="18"
-                                             BackgroundColor="#40000000" />
-                            </HorizontalStackLayout>
                         </Grid>
 
                         <!-- 4. Rodapé do Post: Informações (Esquerda) e Ações (Direita) -->

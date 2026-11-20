@@ -8,9 +8,10 @@
 
     <Grid RowDefinitions="Auto,*,Auto">
 
-        <!-- Bônus: deslizar para a direita (sentido inverso de como se chega aqui) também volta pro Feed -->
+        <!-- Gestos horizontais -->
         <Grid.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Right" Swiped="BtnVoltar_Clicked" />
+            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeToCursos" />
+            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwipeToSimulados"/>
         </Grid.GestureRecognizers>
 
         <!-- Cabeçalho: seta de voltar + título + subtítulo da etapa, conforme Figma -->

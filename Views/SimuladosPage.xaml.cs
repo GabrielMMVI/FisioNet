@@ -191,16 +191,26 @@ public partial class SimuladosPage : ContentPage
         }
     }
 
-    // ---------- Barra de navegação inferior ----------
-    public async void BtnFeedPage_Clicked(object? sender, EventArgs e)
-        => await Shell.Current.GoToAsync(nameof(FeedPage));
+    //// ---------- Barra de navegação inferior ----------
+    //public async void BtnFeedPage_Clicked(object? sender, EventArgs e)
+    //    => await Shell.Current.GoToAsync(nameof(FeedPage));
 
-    public async void BtnCursosPage_Clicked(object? sender, EventArgs e)
-        => await Shell.Current.GoToAsync(nameof(CursosPage));
+    //public async void BtnCursosPage_Clicked(object? sender, EventArgs e)
+    //    => await Shell.Current.GoToAsync(nameof(CursosPage));
 
-    public async void BtnPostPage_Clicked(object? sender, EventArgs e)
-        => await Shell.Current.GoToAsync(nameof(PostPage));
+    //public async void BtnPostPage_Clicked(object? sender, EventArgs e)
+    //    => await Shell.Current.GoToAsync(nameof(PostPage));
 
-    public async void BtnProfilePage_Clicked(object? sender, EventArgs e)
-        => await Shell.Current.GoToAsync(nameof(ProfilePage));
+    //public async void BtnProfilePage_Clicked(object? sender, EventArgs e)
+    //    => await Shell.Current.GoToAsync(nameof(ProfilePage));
+
+    private async void OnSwipeToPublicar(object sender, SwipedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(PostPage));
+    }
+
+    private async void OnSwipeToPerfil(object sender, SwipedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(ProfilePage));
+    }
 }

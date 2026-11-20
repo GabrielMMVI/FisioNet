@@ -10,7 +10,7 @@
 
         <!-- Bônus: deslizar para a esquerda (sentido inverso de como se chega aqui) também volta pro Feed -->
         <Grid.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Left" Swiped="BtnVoltar_Clicked"/>
+            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwipeToSimulados"/>
         </Grid.GestureRecognizers>
 
         <!-- Cabeçalho adaptado com fundo verde para mesclar com o topo do perfil -->

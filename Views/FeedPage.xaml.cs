@@ -49,35 +49,8 @@ public partial class FeedPage : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(PostPage));
     }
-
-    // Rodapé (barra de navegação inferior)
-    public void BtnFeedPage_Clicked(object sender, EventArgs e)
-    {
-        // Já estamos no Feed, nada a fazer.
-    }
-
-    public async void BtnEmBreve_Clicked(object sender, EventArgs e)
-    {
-        await DisplayAlert("FisioNet", "Em breve.", "OK");
-    }
-
-    public async void BtnCursosPage_Clicked(object? sender, EventArgs e)
+    private async void OnSwipeToCursos(object? sender, SwipedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(CursosPage));
-    }
-
-    public async void BtnPostPage_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(PostPage));
-    }
-
-    public async void BtnAvisosPage_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(AvisosPage));
-    }
-
-    public async void BtnProfilePage_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(ProfilePage));
     }
 }

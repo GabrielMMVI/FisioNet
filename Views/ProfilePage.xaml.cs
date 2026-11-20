@@ -33,8 +33,8 @@ public partial class ProfilePage : ContentPage
         await Shell.Current.GoToAsync(nameof(AvisosPage));
     }
 
-    public void BtnProfilePage_Clicked(object sender, EventArgs e)
+    private async void OnSwipeToSimulados(object sender, SwipedEventArgs e)
     {
-        // Já estamos no Perfil, nada a fazer.
+        await Shell.Current.GoToAsync(nameof(SimuladosPage));
     }
 }
