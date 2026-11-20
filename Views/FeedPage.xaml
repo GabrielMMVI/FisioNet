@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:FIsioNet.Controls"
              x:Class="FIsioNet.Views.FeedPage"
              BackgroundColor="{StaticResource Background}"
              Title="Feed">
@@ -57,12 +58,21 @@
                                    TextColor="White"
                                    VerticalOptions="Center" />
 
-                            <ImageButton Grid.Column="2" 
-                                         Source="ic_volume_off.png" 
-                                         WidthRequest="36" 
-                                         HeightRequest="36" 
-                                         CornerRadius="18" 
-                                         BackgroundColor="#40000000" />
+                            <HorizontalStackLayout Grid.Column="2" Spacing="10">
+                                <!-- Avisos (saiu da barra inferior e veio para o topo) -->
+                                <ImageButton Source="button_notification.png"
+                                             WidthRequest="36"
+                                             HeightRequest="36"
+                                             Padding="8"
+                                             CornerRadius="18"
+                                             BackgroundColor="#40000000"
+                                             Clicked="BtnAvisosPage_Clicked" />
+                                <ImageButton Source="ic_volume_off.png"
+                                             WidthRequest="36"
+                                             HeightRequest="36"
+                                             CornerRadius="18"
+                                             BackgroundColor="#40000000" />
+                            </HorizontalStackLayout>
                         </Grid>
 
                         <!-- 4. Rodapé do Post: Informações (Esquerda) e Ações (Direita) -->
@@ -170,69 +180,8 @@
             </CarouselView.ItemTemplate>
         </CarouselView>
 
-        <!-- Custom Bottom Navigation Bar -->
-        <Grid Grid.Row="1" 
-              BackgroundColor="{StaticResource Secondary}" 
-              ColumnDefinitions="*,*,*,*,*" 
-              Padding="0,12,0,24">
-
-            <BoxView Grid.ColumnSpan="5" 
-                     HeightRequest="1" 
-                     Color="{StaticResource Secondary}" 
-                     VerticalOptions="Start" 
-                     Margin="0,-12,0,0" />
-
-            <!-- Feed (aba atual) -->
-            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnFeedPage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
-                <Image Source="button_home.png" WidthRequest="24" HeightRequest="24" />
-                <Label Text="Feed" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-            </VerticalStackLayout>
-
-            <!-- Buscar -->
-            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnEmBreve_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
-                <Image Source="button_search.png" WidthRequest="24" HeightRequest="24" />
-                <Label Text="Buscar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-            </VerticalStackLayout>
-
-            <!-- Publicar (Botão Central) -->
-            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4" Margin="0,-4,0,0">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnPostPage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
-                <Border BackgroundColor="{StaticResource Primary}"
-                        Stroke="Transparent"
-                        StrokeShape="RoundRectangle 10"
-                        Padding="12,6"
-                        WidthRequest="45">
-                    <Image Source="button_newpost.png" WidthRequest="18" HeightRequest="18" HorizontalOptions="Center" />
-                </Border>
-                <Label Text="Publicar" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-            </VerticalStackLayout>
-
-            <!-- Avisos -->
-            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnAvisosPage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
-                <Image Source="button_notification.png" WidthRequest="24" HeightRequest="24" />
-                <Label Text="Avisos" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-            </VerticalStackLayout>
-
-            <!-- Perfil -->
-            <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
-                <VerticalStackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="BtnProfilePage_Clicked" />
-                </VerticalStackLayout.GestureRecognizers>
-                <Image Source="button_profile.png" WidthRequest="24" HeightRequest="24" />
-                <Label Text="Perfil" FontSize="10" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
-            </VerticalStackLayout>
-        </Grid>
+        <!-- Barra de navegação inferior (componente único: Controls/BottomNavBar) -->
+        <controls:BottomNavBar Grid.Row="1" AbaAtual="Feed" />
 
     </Grid>
 </ContentPage>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:FIsioNet.Controls"
+             xmlns:models="clr-namespace:FIsioNet.Models"
+             xmlns:views="clr-namespace:FIsioNet.Views"
+             x:Class="FIsioNet.Views.SimuladosPage"
+             x:DataType="views:SimuladosPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Background}"
+             Title="Simulados">
+
+    <ContentPage.Resources>
+        <Color x:Key="Ink">#1B2B22</Color>
+        <Color x:Key="Muted">#5F7A6A</Color>
+        <Color x:Key="ChipBg">#EEF2EF</Color>
+        <Color x:Key="Star">#F2A01E</Color>
+        <Color x:Key="PageBg">#F7F8F7</Color>
+        <Color x:Key="TileBg">#F1F7F3</Color>
+        <Color x:Key="TileBorder">#DCEBE1</Color>
+        <Color x:Key="TagBg">#E6F3EB</Color>
+    </ContentPage.Resources>
+
+    <!-- Conteúdo rolável (*) + barra inferior fixa (Auto) -->
+    <Grid RowDefinitions="*, Auto" BackgroundColor="{StaticResource PageBg}">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- ===== Cabeçalho ===== -->
+                <VerticalStackLayout BackgroundColor="{StaticResource Background}"
+                                     Padding="24,48,24,16" Spacing="4">
+                    <Label Text="FISIOLINK CONCURSOS"
+                           FontSize="13" FontAttributes="Bold" CharacterSpacing="2"
+                           TextColor="{StaticResource Primary}" />
+                    <Label Text="Simulados &amp; Questões"
+                           FontSize="26" FontAttributes="Bold"
+                           TextColor="{StaticResource Ink}" />
+                    <Label Text="{Binding SubtituloCabecalho}"
+                           FontSize="15" TextColor="{StaticResource Muted}" />
+
+                    <!-- Estatísticas -->
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12" Margin="0,16,0,0">
+                        <Border Grid.Column="0" BackgroundColor="{StaticResource TileBg}"
+                                Stroke="{StaticResource TileBorder}" StrokeShape="RoundRectangle 14" Padding="8,14">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="📄" FontSize="16" HorizontalOptions="Center" />
+                                <Label Text="{Binding TotalQuestoesTexto}" FontSize="20" FontAttributes="Bold"
+                                       TextColor="{StaticResource Ink}" HorizontalOptions="Center" />
+                                <Label Text="Questões" FontSize="12" TextColor="{StaticResource Muted}"
+                                       HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="1" BackgroundColor="{StaticResource TileBg}"
+                                Stroke="{StaticResource TileBorder}" StrokeShape="RoundRectangle 14" Padding="8,14">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="🏆" FontSize="16" HorizontalOptions="Center" />
+                                <Label Text="{Binding AprovacaoMediaTexto}" FontSize="20" FontAttributes="Bold"
+                                       TextColor="{StaticResource Ink}" HorizontalOptions="Center" />
+                                <Label Text="Aprovação média" FontSize="12" TextColor="{StaticResource Muted}"
+                                       HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Grid.Column="2" BackgroundColor="{StaticResource TileBg}"
+                                Stroke="{StaticResource TileBorder}" StrokeShape="RoundRectangle 14" Padding="8,14">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="🔥" FontSize="16" HorizontalOptions="Center" />
+                                <Label Text="{Binding AtivosHojeTexto}" FontSize="20" FontAttributes="Bold"
+                                       TextColor="{StaticResource Ink}" HorizontalOptions="Center" />
+                                <Label Text="Ativos hoje" FontSize="12" TextColor="{StaticResource Muted}"
+                                       HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- ===== Filtros por categoria ===== -->
+                <ScrollView Orientation="Horizontal"
+                            HorizontalScrollBarVisibility="Never"
+                            BackgroundColor="{StaticResource Background}">
+                    <HorizontalStackLayout x:Name="ChipsContainer"
+                                           Spacing="10" Padding="24,8,24,16" />
+                </ScrollView>
+                <BoxView HeightRequest="1" Color="{StaticResource Gray100}" />
+
+                <!-- ===== Simulado em destaque ===== -->
+                <VerticalStackLayout Padding="24,20,24,0" Spacing="14"
+                                     IsVisible="{Binding TemDestaque}">
+                    <Label FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Ink}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="⚡  " TextColor="{StaticResource Primary}" />
+                                <Span Text="SIMULADO EM DESTAQUE" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Border x:DataType="models:Simulado"
+                            BindingContext="{Binding SimuladoDestaque, x:DataType=views:SimuladosPage}"
+                            BackgroundColor="{StaticResource Background}"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 18"
+                            Padding="0">
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Opacity="0.08" Radius="16" Offset="0,4" />
+                        </Border.Shadow>
+
+                        <VerticalStackLayout>
+                            <!-- Topo verde com gradiente -->
+                            <Grid Padding="28,24,24,24" RowSpacing="8" RowDefinitions="Auto,Auto,Auto">
+                                <Grid.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="#226B45" Offset="0.0" />
+                                        <GradientStop Color="#47A877" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Grid.Background>
+
+                                <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
+                                    <Label Grid.Column="0" Text="{Binding TentativasTexto, StringFormat='🏆  {0}'}"
+                                           FontSize="14" TextColor="#D8F0E2" VerticalOptions="Center" />
+                                    <Border Grid.Column="1" BackgroundColor="#26FFFFFF"
+                                            Stroke="#80FFFFFF" StrokeThickness="1"
+                                            StrokeShape="RoundRectangle 16" Padding="12,5"
+                                            IsVisible="{Binding TemSelo}">
+                                        <Label Text="{Binding Selo}" FontSize="12" FontAttributes="Bold" TextColor="White" />
+                                    </Border>
+                                </Grid>
+                                <Label Grid.Row="1" Text="{Binding Titulo}" FontSize="24" FontAttributes="Bold"
+                                       TextColor="White" LineBreakMode="WordWrap" />
+                                <Label Grid.Row="2" Text="{Binding Subtitulo}" FontSize="15" TextColor="#D8F0E2" />
+                            </Grid>
+
+                            <!-- Faixa de informações -->
+                            <Grid ColumnDefinitions="*,*,*" Padding="28,16" BackgroundColor="{StaticResource TileBg}">
+                                <Label Grid.Column="0" Text="{Binding QuestoesTexto, StringFormat='📄 {0}'}"
+                                       FontSize="14" TextColor="{StaticResource Ink}" />
+                                <Label Grid.Column="1" Text="{Binding Duracao, StringFormat='🕒 {0}'}"
+                                       FontSize="14" TextColor="{StaticResource Ink}" HorizontalOptions="Center" />
+                                <Label Grid.Column="2" Text="{Binding Nivel, StringFormat='📶 {0}'}"
+                                       FontSize="14" TextColor="{StaticResource Ink}" HorizontalOptions="End" />
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="{StaticResource TileBorder}" />
+
+                            <!-- Aprovação, temas e botão -->
+                            <VerticalStackLayout Padding="28,20,28,24" Spacing="14">
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <Label Text="Taxa de aprovação" FontSize="15" TextColor="{StaticResource Muted}" />
+                                    <Label Grid.Column="1" FontSize="15">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="★ " TextColor="{StaticResource Star}" />
+                                                <Span Text="{Binding NotaTexto}" FontAttributes="Bold" TextColor="{StaticResource Ink}" />
+                                                <Span Text=" " />
+                                                <Span Text="{Binding AvaliacoesTexto}" FontSize="13" TextColor="{StaticResource Gray300}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+
+                                <Grid ColumnDefinitions="*, Auto" ColumnSpacing="12">
+                                    <ProgressBar Progress="{Binding AprovacaoProgresso}"
+                                                 ProgressColor="{StaticResource Star}"
+                                                 BackgroundColor="#EEEEEE"
+                                                 VerticalOptions="Center" />
+                                    <Label Grid.Column="1" Text="{Binding AprovacaoTexto}" FontSize="15"
+                                           FontAttributes="Bold" TextColor="{StaticResource Star}" />
+                                </Grid>
+
+                                <Label Text="TEMAS ABORDADOS" FontSize="14" FontAttributes="Bold"
+                                       TextColor="{StaticResource Gray600}" Margin="0,8,0,0" />
+
+                                <FlexLayout BindableLayout.ItemsSource="{Binding Temas}"
+                                            Wrap="Wrap" JustifyContent="Start" AlignItems="Start">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate x:DataType="x:String">
+                                            <Border BackgroundColor="{StaticResource TagBg}" Stroke="Transparent"
+                                                    StrokeShape="RoundRectangle 16" Padding="14,7"
+                                                    Margin="0,0,8,8">
+                                                <Label Text="{Binding .}" FontSize="14" TextColor="{StaticResource Ink}" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </FlexLayout>
+
+                                <Button Text="◎  Iniciar Simulado Completo"
+                                        FontSize="18" FontAttributes="Bold"
+                                        BackgroundColor="{StaticResource Primary}" TextColor="White"
+                                        CornerRadius="14" HeightRequest="60" Margin="0,4,0,0"
+                                        CommandParameter="{Binding .}"
+                                        Clicked="BtnIniciar_Clicked" />
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- ===== Todas as provas ===== -->
+                <Grid ColumnDefinitions="*, Auto" Padding="24,28,24,14">
+                    <Label Grid.Column="0" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Ink}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="📋  " TextColor="{StaticResource Primary}" />
+                                <Span Text="TODAS AS PROVAS" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Grid.Column="1" Text="{Binding ContagemLista}" FontSize="14"
+                           TextColor="{StaticResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+
+                <Label Text="Nenhuma prova nesta categoria ainda."
+                       Padding="24,0,24,24" FontSize="14" TextColor="{StaticResource Muted}"
+                       IsVisible="{Binding ListaVazia}" />
+
+                <VerticalStackLayout BindableLayout.ItemsSource="{Binding SimuladosFiltrados}"
+                                     Padding="24,0,24,24" Spacing="14">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="models:Simulado">
+                            <Border BackgroundColor="{StaticResource Background}"
+                                    Stroke="Transparent" StrokeShape="RoundRectangle 16" Padding="18,16">
+                                <Border.Shadow>
+                                    <Shadow Brush="Black" Opacity="0.06" Radius="12" Offset="0,3" />
+                                </Border.Shadow>
+                                <VerticalStackLayout Spacing="10">
+                                    <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                                        <Label Text="{Binding Titulo}" FontSize="17" FontAttributes="Bold"
+                                               TextColor="{StaticResource Ink}" LineBreakMode="WordWrap" />
+                                        <Border Grid.Column="1" BackgroundColor="{StaticResource TagBg}"
+                                                Stroke="Transparent" StrokeShape="RoundRectangle 12" Padding="10,4"
+                                                VerticalOptions="Start" IsVisible="{Binding TemSelo}">
+                                            <Label Text="{Binding Selo}" FontSize="11" FontAttributes="Bold"
+                                                   TextColor="{StaticResource Primary}" />
+                                        </Border>
+                                    </Grid>
+                                    <Label Text="{Binding Subtitulo}" FontSize="13" TextColor="{StaticResource Muted}" />
+
+                                    <Label FontSize="13" TextColor="{StaticResource Muted}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="📄 " />
+                                                <Span Text="{Binding QuestoesTexto}" />
+                                                <Span Text="   🕒 " />
+                                                <Span Text="{Binding Duracao}" />
+                                                <Span Text="   📶 " />
+                                                <Span Text="{Binding Nivel}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                                        <ProgressBar Progress="{Binding AprovacaoProgresso}"
+                                                     ProgressColor="{StaticResource Star}"
+                                                     BackgroundColor="#EEEEEE" VerticalOptions="Center" />
+                                        <Label Grid.Column="1" Text="{Binding AprovacaoTexto, StringFormat='{0} aprovação'}"
+                                               FontSize="12" FontAttributes="Bold" TextColor="{StaticResource Star}" />
+                                    </Grid>
+
+                                    <Grid ColumnDefinitions="*, Auto" Margin="0,2,0,0">
+                                        <Label FontSize="13" VerticalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="★ " TextColor="{StaticResource Star}" />
+                                                    <Span Text="{Binding NotaTexto}" FontAttributes="Bold" TextColor="{StaticResource Ink}" />
+                                                    <Span Text="  ·  " TextColor="{StaticResource Muted}" />
+                                                    <Span Text="{Binding TentativasTexto}" TextColor="{StaticResource Muted}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Button Grid.Column="1" Text="Iniciar"
+                                                FontSize="14" FontAttributes="Bold"
+                                                BackgroundColor="{StaticResource Primary}" TextColor="White"
+                                                CornerRadius="12" HeightRequest="40" Padding="22,0"
+                                                CommandParameter="{Binding .}"
+                                                Clicked="BtnIniciar_Clicked" />
+                                    </Grid>
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Barra de navegação inferior (componente único: Controls/BottomNavBar) -->
+        <controls:BottomNavBar Grid.Row="1" AbaAtual="Simulados" />
+    </Grid>
+</ContentPage>
